@@ -1,5 +1,5 @@
 
-### Live - [https://react-portfolio-template.netlify.app/](https://wadizaatour.netlify.app/)
+### Live - [wadizaatour.com](https://wadizaatour.netlify.app/)
 
 ### Features - 
 
