@@ -1,7 +1,7 @@
 {
     "name": "Wadi",
     "headerTaglineOne": "Hello 👋",
-    "headerTaglineTwo": "I'm Wadi Zaatour",
+    "headerTaglineTwo": "I'm wadi zaatour",
     "headerTaglineThree": "Frontend Engineer",
     "headerTaglineFour": " based in Utrecht, Netherlands.",
     "showCursor": true,
@@ -12,27 +12,22 @@
         {
             "id": "1",
             "title": "Github",
-            "link": "https://github.com/chetanverma16"
+            "link": "https://github.com/wadizaatour"
         },
         {
             "id": "2",
             "title": "LinkedIn",
-            "link": "https://www.linkedin.com/in/chetanverma7/"
-        },
-        {
-            "id": "3",
-            "title": "Twitter",
-            "link": "https://twitter.com/realchetanverma"
+            "link": "https://www.linkedin.com/in/wadi-zaatour/"
         },
         {
             "id": "4",
             "title": "Blog",
-            "link": "https://blog.chetanverma.com/"
+            "link": "https://dev.to/wadizaatour/"
         },
         {
             "id": "5",
             "title": "Email",
-            "link": "mailto:hello@chetanverma.com"
+            "link": "mailto:wadizaatourbusiness@gmail.com"
         }
     ],
     "projects": [
@@ -108,40 +103,60 @@
         "experiences": [
             {
                 "id": "1",
-                "dates": "March 2022 - Present",
+                "dates": "January 2022 - Present",
                 "type": "Full Time",
-                "position": "Frontend Engineer at X",
+                "position": "Senior Frontend Engineer at CowManager",
                 "bullets": "Created features with precise attention to detail matching pixel-perfect designs, Staying up-to-date with the latest Frontend trends, Ensuring responsiveness and mobile ready components by considering UI/UX standards,  Contributed to decision-making to improve user and developer experiences, mplemented security measure to prevent XSS attacks, Provided clear communication and conducted regular code reviews for enhanced project quality"
             },
             {
                 "id": "d495c23b-4f65-479a-9b8a-cfbc1c089725",
-                "dates": "July 2020 - March 2022",
+                "dates": "February 2019 - Jan 2019",
                 "type": "Full Time",
-                "position": "Frontend Engineer at X",
-                "bullets": "Worked on the frontend of a React application, Worked on the frontend of a React application"
+                "position": "FullStack Engineer at FactorBlue",
+                "bullets": "Build and manage web applications using modern technologies, Collaborate with diverse teams to design and integrate new features and functions into web applications, Maintain and update full-stack applications using the latest web technologies, Ensure seamless teamwork and coordination for successful implementation of web application features and functionalities"
+            },
+            {
+                "id": "d495c23b-4f65-479a-9b8a-cfbc1c089729",
+                "dates": "September 2017 - Jun 2018",
+                "type": "Full Time",
+                "position": "FullStack Engineer at Esprit",
+                "bullets": "Contributed to all development stages for crafting a media-focused web app serving volunteering and organizations, Utilized Rest API for accessing and managing textual web resources, Designed templates in Photoshop and seamlessly integrated into the client-side, Developed an advanced matching system facilitating automated preference: grouping event suggestions and real-time localization for organizations and volunteers"
+            },
+            {
+                "id": "d495c23b-4f65-479a-9b8a-cfbc1c089726",
+                "dates": "November 2015 - June 2017",
+                "type": "Full Time",
+                "position": "FullStack Engineer at Sofrecom",
+                "bullets": "Led a team of engineers in developing a multi-platform application providing advisory services for businesses and telecommunications operators, Implemented API management systems and unit tests to enhance code quality, following Scrum methodology, Played a key role in significantly improving user experience through scalable API management and rigorous unit testing efforts, Spearheaded to scale up user experience by focusing on API management and code quality enhancements within the development team"
             }
         ],
-        "education": {
-            "universityName": "University X",
-            "universityDate": "2016-2020",
-            "universityPara": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+        "education":{
+            "universityName": "Private Higher School of Engineering and Technology - ESPRIT",
+            "universityDate": "2015-2018",
+            "universityPara": "Master's Degree, Software engineering"
+        },
+        "educationBachelor":{
+            "universityName": "Higher Institute of Multimedia Arts of Manouba - ISAMM",
+            "universityDate": "2015-2018",
+            "universityPara": "Bachelor's Degree, Computer science and multimedia"
         },
         "languages": [
             "Javascript",
+            "Typescript",
             "HTML5",
             "CSS",
-            "Python",
-            "Go"
+            "Python"
         ],
         "frameworks": [
             "React",
+            "Vue",
             "Typescript",
             "NodeJs"
         ],
         "others": [
             "Figma",
             "AdobeXD",
-            "AWS"
+            "AzureDeveops"
         ]
     }
 }
