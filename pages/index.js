@@ -13,7 +13,8 @@ import Cursor from "../components/Cursor";
 
 // Local Data
 import data from "../data/portfolio.json";
-
+import Image from 'next/image'
+import avatar from "../data/avatar.jpg"
 export default function Home() {
   // Ref
   const workRef = useRef();
@@ -69,32 +70,39 @@ export default function Home() {
           handleAboutScroll={handleAboutScroll}
         />
         <div className="laptop:mt-20 mt-10">
+        <div className="flex sm:flex-col items-center">
           <div className="mt-5">
+            
             <h1
               ref={textOne}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
+              className="sm:text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
             >
               {data.headerTaglineOne}
             </h1>
             <h1
               ref={textTwo}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="sm:text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
             >
               {data.headerTaglineTwo}
             </h1>
             <h1
               ref={textThree}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="sm:text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
             >
               {data.headerTaglineThree}
             </h1>
             <h1
               ref={textFour}
-              className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+              className="sm:text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
             >
               {data.headerTaglineFour}
             </h1>
           </div>
+          <div className="object-fill w-3/6">
+          <Image  src={avatar} width={500} height={500} alt="Avatar" />
+          </div>
+         
+            </div>
           <div className="flex flex-row-reverse justify-between">
             <Button type="primary" onClick={handleButtonClick}>Schedule a call</Button>
             <Socials className="mt-2 laptop:mt-5" />
@@ -104,10 +112,10 @@ export default function Home() {
 
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
           <h1 className="tablet:m-10 text-2xl text-bold">About.</h1>
-          <div className="flex justify-between  items-center">  
+          <div className="flex justify-between  items-center">
             <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
-            {data.aboutpara}
-          </p>
+              {data.aboutpara}
+            </p>
             <Button type="primary" className="h-fit" onClick={handleButtonRedirect}>Check my resume</Button></div>
         </div>
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
