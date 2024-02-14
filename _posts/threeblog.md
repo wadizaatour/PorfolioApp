@@ -1,93 +1,225 @@
 ---
-date: "2022-07-08T11:50:54.000Z"
-title: Three Blog
-tagline: This is a Tagline If you want to add.
-preview: >-
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-  when an unknown printer took a galley of type and scrambled it to make a type
-  specimen book.
+date: '2024-01-01T12:50:54.000Z'
+title: 'How to publish npm package and create dynamic svg loader '
+tagline: Npm Package DynamicSvgLoader
+preview: |2
+   Vite project for our dynamic lazy SVG loader that can be used in both React and Vue. We'll follow similar steps as before:
 image: >-
   https://images.unsplash.com/photo-1640017955477-75b58521007d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80
 ---
+Vite project for our dynamic lazy SVG loader that can be used in both React and Vue. We'll follow similar steps as before:
 
-# Heading One
+1. **Create the Project**:
+   Start by creating a new directory for your project. Navigate to that directory in your terminal and run the following commands:
 
-**Lorem Ipsum** is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+   ```bash
+   mkdir dynamic-svg-loader-vite
+   cd dynamic-svg-loader-vite
+   npm init -y
+   ```
 
-## This is Heading Two
+2. **Install Dependencies**:
+   Install the necessary dependencies for your project:
 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+   ```bash
+   npm install react react-dom vue
+   npm install --save-dev typescript vite vite-svg-loader
+   ```
 
-### This is Heading Three with `inline code`
+3. **Create the SVG Loader**:
+   Let's create a TypeScript file that will handle dynamic SVG loading. Create a file named `DynamicSvgLoader.vue` in your project directory:
 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+   ```vue
+   <!-- DynamicSvgLoader.vue -->
 
-#### This is Heading Four With Code Block
+   <template>
+     <Suspense fallback="Loading...">
+       <Icon :name="name" :size="size" :color="color" />
+     </Suspense>
+   </template>
 
-```
+   <script setup lang="ts">
+   import { defineProps, Suspense, lazy } from 'vue';
 
-# Auto-generated based on the server's hostname.
-# Set this to the URL used to access the Firezone Web UI.
-default['firezone']['external_url'] = 'https://firezone.example.com'
+   const { name, size = 16, color = '#000' } = defineProps({
+     name: String,
+     size: { type: Number, default: 16 },
+     color: { type: String, default: '#000' },
+   });
 
-# Specify the path to your SSL cert and private key.
-# If set to nil (default), a self-signed cert will be generated for you.
-default['firezone']['ssl']['certificate'] = '/path/to/cert.pem'
-default['firezone']['ssl']['certificate_key'] = '/path/to/key.pem'
+   const Icon = lazy(() => import(`./icons/${name}.svg?component`));
+   </script>
+   ```
 
-```
+4. **Create an Icons Directory**:
+   Create a directory named `icons` in your project. Place your individual SVG files (e.g., `myicon.svg`, `anothericon.svg`) inside this directory.
 
-##### Heading Five Code With Max Height
+My apologies for the oversight! Let's create the **React** implementation for our dynamic lazy SVG loader using **Vite**. We'll follow similar steps as before, but this time we'll focus on React:
 
-```
+1. **Install Dependencies**:
+   Make sure you have already installed **Vite** and **React**. If not, run the following commands:
 
-# Auto-generated based on the server's hostname.
-# Set this to the URL used to access the Firezone Web UI.
-default['firezone']['external_url'] = 'https://firezone.example.com'
+   ```bash
+   npm install -g create-vite
+   create-vite my-svg-loader-react --template react-ts
+   cd my-svg-loader-react
+   ```
 
-# Specify the path to your SSL cert and private key.
-# If set to nil (default), a self-signed cert will be generated for you.
-default['firezone']['ssl']['certificate'] = '/path/to/cert.pem'
-default['firezone']['ssl']['certificate_key'] = '/path/to/key.pem'
+2. **Install the Plugin**:
+   Install the `@andylacko/vite-svg-react-loader` plugin:
 
-# Auto-generated based on the server's hostname.
-# Set this to the URL used to access the Firezone Web UI.
-default['firezone']['external_url'] = 'https://firezone.example.com'
+   ```bash
+   npm install --save-dev @andylacko/vite-svg-react-loader
+   ```
 
-# Specify the path to your SSL cert and private key.
-# If set to nil (default), a self-signed cert will be generated for you.
-default['firezone']['ssl']['certificate'] = '/path/to/cert.pem'
-default['firezone']['ssl']['certificate_key'] = '/path/to/key.pem'
+3. **Configure Vite**:
+   Open your `vite.config.ts` file and add the plugin to the list of Vite plugins:
 
-```
+   ```javascript
+   // vite.config.ts
+   import { defineConfig } from 'vite';
+   import react from '@vitejs/plugin-react';
+   import svgReactLoader from '@andylacko/vite-svg-react-loader';
 
-## BLockquote
+   export default defineConfig({
+     plugins: [react(), svgReactLoader()],
+   });
+   ```
 
-> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+4. **Create a Custom Hook**:
+   Let's create a custom hook that dynamically imports SVG icons based on their names. Create a file named `useDynamicSvgImport.ts`:
 
-## Ordered List with horizontal line
+   ```tsx
+   // useDynamicSvgImport.ts
+   import React, { useEffect, useRef, useState } from 'react';
 
-1. First item
-2. Second item
-3. Third item
-4. Fourth item
+   export function useDynamicSvgImport(iconName: string) {
+     const importedIconRef = useRef<React.FC<React.SVGProps<SVGElement>>>();
+     const [loading, setLoading] = useState(false);
+     const [error, setError] = useState<unknown>();
 
----
+     useEffect(() => {
+       setLoading(true);
 
-## Unordered List With Horizontal line
+       const importSvgIcon = async (): Promise<void> => {
+         try {
+           importedIconRef.current = (
+             await import(`../../assets/icons/${iconName}.svg`)
+           ).ReactComponent; // svgr provides ReactComponent for given svg path
+         } catch (err) {
+           setError(err);
+           console.error(err);
+         } finally {
+           setLoading(false);
+         }
+       };
 
-- First item
-- Second item
-- Third item
-- Fourth item
+       importSvgIcon();
+     }, [iconName]);
 
----
+     return { error, loading, SvgIcon: importedIconRef.current };
+   }
+   ```
 
-## Links
+5. **Create the SVG Icon Wrapper Component**:
+   Now let's create a wrapper component that handles loading and rendering the SVG icon. Create a file named `SvgIcon.tsx`:
 
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+   ```tsx
+   // SvgIcon.tsx
+   import React from 'react';
+   import { useDynamicSvgImport } from './useDynamicSvgImport';
 
-## Images
+   interface SvgIconProps {
+     iconName: string;
+     wrapperStyle?: React.CSSProperties;
+     svgProp?: React.SVGProps<SVGSVGElement>;
+   }
 
-![An old rock in the desert](https://images.unsplash.com/photo-1654475677192-2d869348bb4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+   function SvgIcon({ iconName, wrapperStyle, svgProp }: SvgIconProps) {
+     const { loading, SvgIcon } = useDynamicSvgImport(iconName);
+
+     return (
+       <>
+         {loading && (
+           <div className="rounded-full bg-slate-400 animate-pulse h-8 w-8"></div>
+         )}
+         {SvgIcon && (
+           <div style={wrapperStyle}>
+             <SvgIcon {...svgProp} />
+           </div>
+         )}
+       </>
+     );
+   }
+
+   export default SvgIcon;
+   ```
+
+6. **Usage**:
+   In your React components, you can now use the `SvgIcon` component like this:
+
+   ```tsx
+   // Example usage
+   import React from 'react';
+   import SvgIcon from './SvgIcon';
+
+   const MyComponent: React.FC = () => {
+     return (
+       <div>
+         <SvgIcon iconName="myicon" wrapperStyle={{ color: 'red' }} />
+       </div>
+     );
+   };
+
+   export default MyComponent;
+   ```
+
+   ```jsx
+   // React
+   import React from 'react';
+   import DynamicSvgLoader from './DynamicSvgLoader.vue';
+
+   const MyComponent = () => {
+     return (
+       <div>
+         <DynamicSvgLoader name="myicon" size={24} color="#ff0000" />
+       </div>
+     );
+   };
+
+   export default MyComponent;
+   ```
+
+   ```vue
+   <!-- Vue -->
+   <template>
+     <div>
+       <DynamicSvgLoader name="myicon" :size="24" color="#ff0000" />
+     </div>
+   </template>
+
+   <script setup>
+   import DynamicSvgLoader from './DynamicSvgLoader.vue';
+   </script>
+   ```
+
+7. **Build and Serve**:
+   Build your project using Vite:
+
+   ```bash
+   npx vite build
+   ```
+
+   Serve your project locally:
+
+   ```bash
+   npx vite
+   ```
+
+Remember to adjust the configuration and folder structure according to your specific needs. Enjoy building your dynamic SVG loader with Vite! 🚀🎨
+
+Source: Conversation with Bing, 2/14/2024
+(1) vite-svg-loader - npm. https://www.npmjs.com/package/vite-svg-loader.
+(2) react-svg-loader - npm. https://www.npmjs.com/package/react-svg-loader.
+(3) vue-svg-loader - npm. https://www.npmjs.com/package/vue-svg-loader.
+(4) Dynamic inline importing raw SVG in Vue.js & Vite. https://stackoverflow.com/questions/71176408/dynamic-inline-importing-raw-svg-in-vue-js-vite.
