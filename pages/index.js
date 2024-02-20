@@ -13,8 +13,6 @@ import Cursor from "../components/Cursor";
 
 // Local Data
 import data from "../data/portfolio.json";
-import Image from 'next/image'
-import avatar from "../data/avatar.jpg"
 export default function Home() {
   // Ref
   const workRef = useRef();
@@ -98,9 +96,7 @@ export default function Home() {
               {data.headerTaglineFour}
             </h1>
           </div>
-          <div className="object-fill w-3/6">
-          <Image  src={avatar} width={500} height={500} alt="Avatar" />
-          </div>
+  
          
             </div>
           <div className="flex flex-row-reverse justify-between">
