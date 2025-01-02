@@ -118,7 +118,7 @@ export default function Home() {
            </div>
         </div>
         <div className="flex justify-center" ref={aboutRef}>
-          
+          //to do improve layout of resume 
           <div className="flex justify-center border-2 border-black rounded p-4">
           <Button type="primary" className="h-fit" onClick={handleButtonRedirect}>Check my resume</Button>
           <Image src="/assets/cv.svg" alt="Vue Logo" width={30} height={30} />
