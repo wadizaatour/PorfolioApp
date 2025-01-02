@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+//Todo: improve svg logo for companies
 const CompaniesSection = () => {
   return (
     <div className="flex flex-wrap justify-center gap-6 p-4">
