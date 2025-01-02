@@ -10,7 +10,7 @@ const Button = ({ children, type, onClick, classes }) => {
         onClick={onClick}
         type="button"
         className={`text-sm tablet:text-base p-1 laptop:p-2 m-1 laptop:m-2 rounded-lg ${
-          theme === "dark" ? "bg-white text-black" : "bg-black text-white"
+          theme === "dark" ? "bg-black text-white" : " bg-white text-black"
         }  transition-all duration-300 ease-out first:ml-0 hover:scale-105 active:scale-100 link ${
           data.showCursor && "cursor-none"
         }  ${classes}`}
